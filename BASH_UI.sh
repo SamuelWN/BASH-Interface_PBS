@@ -224,7 +224,7 @@ fi
 
 PBS="${PBS}
 
-'$PROGRAM' '$INPUT/' '$OUTPUT/' $OPTIONS 2&>1 > '$LOGFILE'
+'$PROGRAM' '$INPUT/' '$OUTPUT/' $OPTIONS &> '$LOGFILE'
 "
 
 echo -e "\nSubmitting task to cluster...\n"
