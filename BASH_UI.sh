@@ -35,14 +35,14 @@ phy_path() {
 # BEGIN Variables
 
 logo='
- /$$   /$$                    /$$$$$$  /$$ /$$
-| $$  | $$                   /$$__  $$| $$|__/
-| $$  | $$ /$$$$$$$         | $$  \__/| $$ /$$  /$$$$$$$  /$$$$$$   /$$$$$$
-| $$  | $$| $$__  $$ /$$$$$$|  $$$$$$ | $$| $$ /$$_____/ /$$__  $$ /$$__  $$
-| $$  | $$| $$  \ $$|______/ \____  $$| $$| $$| $$      | $$$$$$$$| $$  \__/
-| $$  | $$| $$  | $$         /$$  \ $$| $$| $$| $$      | $$_____/| $$
-|  $$$$$$/| $$  | $$        |  $$$$$$/| $$| $$|  $$$$$$$|  $$$$$$$| $$
- \______/ |__/  |__/         \______/ |__/|__/ \_______/ \_______/|__/
+ /$$$$$$$  /$$$$$$$   /$$$$$$           /$$$$$$              /$$              
+| $$__  $$| $$__  $$ /$$__  $$         /$$__  $$            | $$              
+| $$  \ $$| $$  \ $$| $$  \__/        | $$  \ $$ /$$   /$$ /$$$$$$    /$$$$$$ 
+| $$$$$$$/| $$$$$$$ |  $$$$$$  /$$$$$$| $$$$$$$$| $$  | $$|_  $$_/   /$$__  $$
+| $$____/ | $$__  $$ \____  $$|______/| $$__  $$| $$  | $$  | $$    | $$  \ $$
+| $$      | $$  \ $$ /$$  \ $$        | $$  | $$| $$  | $$  | $$ /$$| $$  | $$
+| $$      | $$$$$$$/|  $$$$$$/        | $$  | $$|  $$$$$$/  |  $$$$/|  $$$$$$/
+|__/      |_______/  \______/         |__/  |__/ \______/    \___/   \______/ 
 '
 
 PROGRAM='<Path to executable>'
@@ -61,10 +61,10 @@ Submit a registration task to the cluster.
 
 Options:
 -d              Dry-run; do not submit the job to the cluster, just show what would happen.
--r              Do not perform any registration between slices
+-r              <Application option>
 -q              Quiet; use defaults when available
--g <decimal>    Specify an alternative gradient smoothing SD (default: 4.0)
--c <integer>    Specify an alternative number of iterations  (default: 50)
+-g <decimal>    <Application option with arguments>
+-c <integer>    <Application option with arguments>
 -i <directory>  Specify the input directory
 -o <directory>  Specify the output directory
 -h | --help     Display this message
@@ -161,9 +161,10 @@ MEM=$(echo $MEM | awk '
 # Count the number of files in the folder
 NF=$(ls -fq "$INPUT" | wc -l)
 
-# Provide a generous estimate for the required computation time
+# Provide an estimate for the required computation time
+#
 # NOTES:
-#   This may need to be adjusted.
+#   Modify this based upon your own code's needs (over-estimate)
 #   User input may ultimately prove the preferable way to go
 if [[ $NF -gt 99 ]]; then
     HRS=$(printf %02d $(expr $NF / 100))
