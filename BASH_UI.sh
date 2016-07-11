@@ -1,9 +1,9 @@
 #!/bin/bash
 #                                                                                   #
-# This is an interactive front-end for the slice-to-volume C++ program.             #
+# This is an interactive front-end for a PBS job submission.                        #
 #                                                                                   #
-# This code was designed for a specific task. The majority of it, however, should   #
-# be able to be adapted for most PBS-script based applications.                     #
+# This code was originally designed for a specific task, but has been modified for  #
+# generalization and should be applicable to a wide-range of applications.          #
 #                                                                                   #
 #                                                                                   #
 # @NOTE                                                                             #
